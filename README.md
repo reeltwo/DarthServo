@@ -1,13 +1,13 @@
-# Darth Servo
-
 ![Darth Servo](images/splash.gif "Darth Servo")
 
-## Installer
+Web based servo control firmware for ESP32.
+
+# Web Based Installer
 
 Install pre-built firmware directly onto your ESP board using this web based installer.
 https://reeltwo.github.io/DarthServo-Installer/
 
-Requires Chrome or Edge.
+*Requires Chrome or Edge.*
 
 https://user-images.githubusercontent.com/16616950/217624012-ee10fa44-8614-4a1b-b24d-f9c56b16dc1c.mov
 
