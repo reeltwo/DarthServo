@@ -2,11 +2,25 @@
 
 ![Darth Servo](images/splash.gif "Darth Servo")
 
-https://user-images.githubusercontent.com/16616950/217624012-ee10fa44-8614-4a1b-b24d-f9c56b16dc1c.mov
+Example | Menu
+:-: | :-:
+https://user-images.githubusercontent.com/16616950/217624012-ee10fa44-8614-4a1b-b24d-f9c56b16dc1c.mov | ![Menu](images/menu.png "Menu")
 
 Animate 1 | Animate 2
 :-: | :-:
 ![Animate 1/4](images/animate1.png "Animate 1/4") | ![Animate 2/4](images/animate2.png "Animate 2/4")
+
+Animate 3 | Animate 4
+:-: | :-:
+![Animate 3/4](images/animate3.png "Animate 3/4") | ![Animate 4/4](images/animate4.png "Animate 4/4")
+
+Frames | Sequences
+:-: | :-:
+![Frames](images/frames.png "Frames") | ![Sequences](images/sequences.png "Sequences")
+
+Settings | Script
+:-: | :-:
+![Settings](images/settings.png "Settings") | ![Script](images/script.png "Script")
 
 ## Installer
 
