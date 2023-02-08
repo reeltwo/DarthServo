@@ -1,0 +1,19 @@
+# OS generated files #
+######################
+*.*.bak
+*.orig
+*.sublime-workspace
+._*
+.build
+.lib
+.pio
+html/.env
+html/package-lock.json
+html/node_modules
+*build_version.h
+requirements.txt
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+.vs/
