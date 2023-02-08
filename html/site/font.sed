@@ -1,0 +1,12 @@
+s?<span class="syms">sync</span>?<span class="syms">\&#xe627;</span>?
+s?<span class="syms">menu</span>?<span class="syms">\&#xe5d2;</span>?
+s?<span class="syms">keyboard_arrow_up</span>?<span class="syms">\&#xe316;</span>?
+s?<span class="syms">arrow_back_ios</span>?<span class="syms">\&#xe5e0;</span>?
+s?<span class="syms">edit_note</span>?<span class="syms">\&#xe745;</span>?
+s?<span class="syms">delete</span>?<span class="syms">\&#xe872;</span>?
+s?<span class="syms">publish</span>?<span class="syms">\&#xe255;</span>?
+s?<span class="syms">library_add</span>?<span class="syms">\&#xe02e;</span>?
+s?<span class="syms">arrow_forward_ios</span>?<span class="syms">\&#xe5e1;</span>?
+s?<span class="syms">play_circle</span>?<span class="syms">\&#xe1c4;</span>?
+s?<span class="syms">stop_circle</span>?<span class="syms">\&#xef71;</span>?
+s?<span class="syms">keyboard_arrow_down</span>?<span class="syms">\&#xe313;</span>?

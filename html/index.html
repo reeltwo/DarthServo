@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Servo Animation</title>
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+		<%= htmlWebpackPlugin.tags.headTags %>
+	</head>
+	<body>
+		<div style="position:fixed;top:250px;left:150px;z-index:10000;font-size:100px;color:grey;transform:rotate(-30deg);opacity:0.4;">BETA</div>
+		<div hidden id="script_editor"></div>
+		<div class="navbar">
+			<div class="dropdown">
+				<button id="dropbtn" class="dropbtn"><span class="syms">menu</span></button>
+				<div id="dropdown-content" class="dropdown-content">
+					<a id="showAnimate" href="#">Animate</a>
+					<a id="showTimeline" href="#">Timeline</a>
+					<a id="showFrames" href="#">Frames</a>
+					<a id="showSequences" href="#">Sequences</a>
+					<a id="showSettings" href="#">Settings</a>
+					<a id="showScript" href="#">Script</a>
+					<a id="saveToFile" href="#">Save</a>
+					<a id="openFile" href="#">Load</a>
+					<a href="/">Home</a>
+				</div>
+			</div>
+			<a id="add_button" href="#" hidden><span class="syms">library_add</span></a>
+			<a id="edit_button" href="#" hidden><span class="syms">edit_note</span></a>
+			<a id="up_button" href="#" hidden><span class="syms">keyboard_arrow_up</span></a>
+			<a id="down_button" href="#" hidden><span class="syms">keyboard_arrow_down</span></a>
+			<a id="del_button" href="#" hidden><span class="syms">delete</span></a>
+			<div class="navbar-right">
+				<a id="playSeq" href="#"><span class="syms">play_circle</span></a>
+				<a id="stopSeq" href="#" hidden><span class="syms">stop_circle</span></a>
+				<a id="prevFrame" href="#" hidden><span class="syms">arrow_back_ios</span></a>
+				<div id="navbarinfo"></div>
+				<a id="nextFrame" href="#" hidden><span class="syms">arrow_forward_ios</span></a>
+				<a id="sync_script" hidden href="#" hidden><span class="syms">sync</span></a>
+				<a id="upload_button" hidden href="#" hidden><span class="syms">publish</span></a>
+			</div>
+		</div>
+
+		<table hidden id="output" class="tg">
+			<thead>
+				<tr>
+					<th class="tg-left"> </th>
+					<th class="tg-left"># Name</th>
+					<th class="tg-center">Position</th>
+					<th class="tg-center">Duration</th>
+					<th class="tg-center">Easing</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tg-left" id="col0"><input type="checkbox" id="srvena"/></td>
+					<td class="tg-left" id="col1"><input type="text" id="srvnam" class="nam0_css" value="1"/></td>
+					<td class="tg-center" id="col2"><input type="range" min="0" max="1000" class="pos0_css" id="srvpos"/></td>
+					<td class="tg-center" id="col3"><input type="number" id="srvdur" min="0" class="dur0_css" value="0"/></td>
+					<td class="tg-center" id="col4">
+						<select id="srveas" class="eas0_css">
+							<option value="0">Linear</option>
+							<option value="1">Continuous</option>
+							<option value="2">Quadratic Ease In</option>
+							<option value="3">Quadratic Ease Out</option>
+							<option value="4">Quadratic Ease In Out</option>
+							<option value="5">Cubic Ease In</option>
+							<option value="6">Cubic Ease Out</option>
+							<option value="7">Cubic Ease In Out</option>
+							<option value="8">Quartic Ease In</option>
+							<option value="9">Quartic Ease Out</option>
+							<option value="10">Quartic Ease In Out</option>
+							<option value="11">Quintic Ease In</option>
+							<option value="12">Quintic Ease Out</option>
+							<option value="13">Quintic Ease In Out</option>
+							<option value="14">Sine Ease In</option>
+							<option value="15">Sine Ease Out</option>
+							<option value="16">Sine Ease In Out</option>
+							<option value="17">Circular Ease In</option>
+							<option value="18">Circular Ease Out</option>
+							<option value="19">Circular Ease In Out</option>
+							<option value="20">Exponential Ease In</option>
+							<option value="21">Exponential Ease Out</option>
+							<option value="22">Exponential Ease In Out</option>
+							<option value="23">Elastic Ease In</option>
+							<option value="24">Elastic Ease Out</option>
+							<option value="25">Elastic Ease In Out</option>
+							<option value="26">Back Ease In</option>
+							<option value="27">Back Ease Out</option>
+							<option value="28">Back Ease In Out</option>
+							<option value="29">Bounce Ease In</option>
+							<option value="30">Bounce Ease Out</option>
+							<option value="31">Bounce Ease In Out</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table hidden id="frames" class="tg">
+			<thead>
+				<tr>
+					<th class="tg-left" id="frselall"><input type="checkbox"/></th>
+					<th class="tg-left">Name</th>
+					<th class="tg-left">Duration</th>
+					<th class="tg-center">Serial Begin</th>
+					<th class="tg-center">Serial End</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tg-left" id="frcol0"><input type="checkbox" id="sel"/></td>
+					<td class="tg-left" id="frcol1"><input type="text" id="frnam" class="setnam0_css" value="1"/></td>
+					<td class="tg-left" id="frcol2"><input type="number" id="frdur" min="0" class="dur0_css" value="500"/></td>
+					<td class="tg-left" id="frcol3"><input type="text" id="frbeg" class="serial0_css" value=""/></td>
+					<td class="tg-left" id="frcol4"><input type="text" id="frend" class="serial0_css" value=""/></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table hidden id="sequences" class="tg">
+			<thead>
+				<tr>
+					<th class="tg-left" id=seqselall><input type="checkbox"/></th>
+					<th class="tg-left">Name</th>
+					<th class="tg-left">Duration</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tg-left" id="seqcol0"><input type="checkbox" id="sel"/></td>
+					<td class="tg-left" id="seqcol1"><input type="text" id="seqNam" class="seqnam0_css" value="Sequence #1"/></td>
+					<td class="tg-left" id="seqcol2"><input type="text" id="compDur" class="seqdur0_css" value="" readonly/></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table hidden id="settings" class="tg">
+			<thead>
+				<tr>
+					<th class="tg-left" id="setselall"><input type="checkbox" checked/></th>
+					<th class="tg-left">Name</th>
+					<th class="tg-center">Min</th>
+					<th class="tg-center">Max</th>
+					<th class="tg-left"> </th>
+					<th class="tg-center">Error</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tg-left" id="setcol0"><input type="checkbox" id="srvena"/></td>
+					<td class="tg-left" id="setcol1"><input type="text" id="srvnam" class="nam0_css" value="Servo1"/></td>
+					<td class="tg-center" id="setcol2"><input type="number" id="srvmin" min="0" class="dur0_css" value="1000"/></td>
+					<td class="tg-center" id="setcol3"><input type="number" id="srvmax" min="0" class="dur0_css" value="2000"/></td>
+					<td class="tg-left" id="setcol4"><input type="checkbox" id="srvuseerr"/></td>
+					<td class="tg-center" id="setcol5"><input type="number" id="srverr" min="0" class="dur0_css" value="1000"/></td>
+				</tr>
+			</tbody>
+		</table>
+		<script src="FileSaver.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ace.js" type="text/javascript" charset="utf-8"></script>
+		<script>var onRuntime;</script>
+		<%= htmlWebpackPlugin.tags.bodyTags %>
+		<script src="virtuoso.js" type="text/javascript" charset="utf-8"></script>
+		<script>Module['onRuntimeInitialized']=onRuntime;;</script>
+	</body>
+</html>
